@@ -1,0 +1,91 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: "Inter", "Poppins", "General Sans", system-ui, sans-serif;
+}
+
+html,
+body {
+  background-color: #eef6f6;
+  color: #1e2a32;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html.dark,
+html.dark body {
+  background-color: #0f171c;
+  color: #e6ebf0;
+}
+
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+.card {
+  @apply bg-white rounded-2xl shadow-card dark:bg-[#17222A] dark:shadow-none dark:ring-1 dark:ring-white/5;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-sky px-5 py-3 font-semibold text-white shadow-soft transition-transform hover:scale-[1.03] active:scale-[0.98] disabled:opacity-50 disabled:hover:scale-100;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-white px-5 py-3 font-semibold text-ink border border-ink/10 transition-transform hover:scale-[1.02] active:scale-[0.98] dark:bg-[#17222A] dark:text-white dark:border-white/10;
+}
+
+.btn-danger {
+  @apply inline-flex items-center justify-center gap-2 rounded-xl bg-pastel-pink px-5 py-3 font-semibold text-pastel-pinkText transition-transform hover:scale-[1.02] active:scale-[0.98];
+}
+
+.input-field {
+  @apply w-full rounded-xl border border-ink/10 bg-white px-4 py-3 text-ink placeholder:text-ink-soft focus:outline-none focus:ring-2 focus:ring-sky dark:bg-[#101A20] dark:text-white dark:border-white/10;
+}
+
+.blur-protect {
+  filter: blur(14px);
+  transition: filter 0.25s ease;
+}
+
+/* App-wide dark overrides — keeps every page's existing text-ink / bg-white
+   classes working while still flipping correctly in dark mode. */
+html.dark .text-ink {
+  color: #e6ebf0;
+}
+html.dark .text-ink-soft {
+  color: #96a3b3;
+}
+html.dark .text-ink-faint {
+  color: #62707f;
+}
+html.dark .bg-white {
+  background-color: #17222a;
+}
+html.dark .border-ink\/10,
+html.dark .border-ink\/5 {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+html.dark .bg-ink\/5 {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+html.dark input,
+html.dark textarea,
+html.dark select {
+  color: #e6ebf0;
+}
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #62707f;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #b8c0cc;
+  border-radius: 8px;
+}
